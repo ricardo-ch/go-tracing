@@ -20,6 +20,7 @@ defer span.Finish()
 docker run -d -p 9411:9411 openzipkin/zipkin
 go run examples/basic/main.go
 go run examples/httpServer/main.go
+go run examples/httpServer-middleware/main.go
 ```
 
 To watch traces you just have to hit http://localhost:9411/
