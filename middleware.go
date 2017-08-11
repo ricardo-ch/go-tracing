@@ -5,9 +5,9 @@ import (
 	"net/http"
 )
 
-// Middleware returns a Middleware that injects an OpenTracing Span found in
+// HttpMiddleware returns a Middleware that injects an OpenTracing Span found in
 // context into the HTTP Headers.
-func Middleware(operationName string, next http.HandlerFunc) http.Handler {
+func HttpMiddleware(operationName string, next http.HandlerFunc) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
 		tags := make(map[string]interface{})
 
