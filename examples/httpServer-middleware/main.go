@@ -7,7 +7,6 @@ import (
 	"time"
 
 	"github.com/ricardo-ch/go-tracing"
-	"github.com/ricardo-ch/go-tracing/examples/httpServer-middleware/middleware"
 )
 
 // this name is use to identify traces inside zipkin
@@ -19,7 +18,7 @@ func main() {
 	tracing.SetGlobalTracer(appName, "http://localhost:9411/")
 	defer tracing.FlushCollector()
 
-	http.Handle("/", middleware.TracingMiddleware("hello-handler", hello))
+	http.Handle("/", tracing.Middleware("hello-handler", hello))
 	http.ListenAndServe(":8000", nil)
 }
 
