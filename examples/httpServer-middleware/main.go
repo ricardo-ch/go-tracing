@@ -18,7 +18,7 @@ func main() {
 	tracing.SetGlobalTracer(appName, "http://localhost:9411/")
 	defer tracing.FlushCollector()
 
-	http.Handle("/", tracing.HttpMiddleware("hello-handler", hello))
+	http.Handle("/", tracing.HTTPMiddleware("hello-handler", http.HandlerFunc(hello)))
 	http.ListenAndServe(":8000", nil)
 }
 
