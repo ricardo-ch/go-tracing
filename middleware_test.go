@@ -15,7 +15,7 @@ import (
 func TestMiddleware(t *testing.T) {
 	assert := assert.New(t)
 
-	ts := httptest.NewServer(HttpMiddleware("test-get", getTestHandler))
+	ts := httptest.NewServer(HTTPMiddleware("test-get", http.HandlerFunc(getTestHandler)))
 	defer ts.Close()
 
 	var u bytes.Buffer
