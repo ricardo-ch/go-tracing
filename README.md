@@ -21,6 +21,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 go run examples/basic/main.go
 go run examples/httpServer/main.go
 go run examples/httpServer-middleware/main.go
+go run examples/httpGoKit-middleware/main.go
 ```
 
 To watch traces you just have to hit http://localhost:9411/
@@ -37,4 +38,4 @@ To watch traces you just have to hit http://localhost:9411/
 go-tracing is licensed under the MIT license. (http://opensource.org/licenses/MIT)
 
 ## Contributing
-Pull requests are the way to help us here. We will be really gratefull.
+Pull requests are the way to help us here. We will be really grateful.
