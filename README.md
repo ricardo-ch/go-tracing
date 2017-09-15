@@ -1,10 +1,11 @@
 # GO-TRACING
+[![wercker status](https://app.wercker.com/status/2bf9dccb9a12513dde0f54316c59a6b9/s/master "wercker status")](https://app.wercker.com/project/byKey/2bf9dccb9a12513dde0f54316c59a6b9)
 
 Go-tracing provides an easy way to use zipkin tracing with only four lines of code.
 
 ## Quick start
 
-```
+```golang
 // set your tracer
 tracing.SetGlobalTracer(appName, "{zipkin_host}")
 defer tracing.FlushCollector()
