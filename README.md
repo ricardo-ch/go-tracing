@@ -1,5 +1,6 @@
 # GO-TRACING
 [![wercker status](https://app.wercker.com/status/2bf9dccb9a12513dde0f54316c59a6b9/s/master "wercker status")](https://app.wercker.com/project/byKey/2bf9dccb9a12513dde0f54316c59a6b9)
+[![Coverage Status](https://coveralls.io/repos/github/ricardo-ch/go-tracing/badge.svg?branch=master)](https://coveralls.io/github/ricardo-ch/go-tracing?branch=master)
 
 Go-tracing provides an easy way to use zipkin tracing with only four lines of code.
 

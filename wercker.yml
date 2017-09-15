@@ -20,3 +20,6 @@ build:
     - script:
         name: test project
         code: make test
+
+    - ricardo-ch/goveralls:
+        token: $COVERALLS_TOKEN
