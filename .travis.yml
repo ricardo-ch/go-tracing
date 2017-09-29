@@ -1,0 +1,13 @@
+language: go
+
+go:
+  - 1.8
+
+notifications:
+ email: false
+
+script:
+ - go get -t ./...
+ - make build
+ - make test
+ 
