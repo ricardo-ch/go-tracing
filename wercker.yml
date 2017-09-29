@@ -23,3 +23,7 @@ build:
 
     - ricardo-ch/goveralls:
         token: $COVERALLS_TOKEN
+
+    - script:
+        name: do not build
+        code: printenv
