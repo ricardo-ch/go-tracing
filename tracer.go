@@ -14,8 +14,8 @@ func GetGlobalTracer() opentracing.Tracer {
 }
 
 //SetGlobalTracer ...
-func SetGlobalTracer(apiName string, zipKinAPIHost string) error {
-	tracer, err := createTracer(apiName, zipKinAPIHost)
+func SetGlobalTracer(apiName string, zipkinURL string) error {
+	tracer, err := createTracer(apiName, zipkinURL)
 	if err != nil {
 		return errors.Wrap(err, "SetGlobalTracer")
 	}
@@ -23,8 +23,8 @@ func SetGlobalTracer(apiName string, zipKinAPIHost string) error {
 	return nil
 }
 
-func createTracer(apiName string, zipKinAPIHost string) (opentracing.Tracer, error) {
-	collector, err := createCollector(zipKinAPIHost)
+func createTracer(apiName string, zipkinURL string) (opentracing.Tracer, error) {
+	collector, err := createCollector(zipkinURL)
 	if err != nil {
 		return nil, errors.Wrap(err, "createTracer")
 	}
@@ -41,8 +41,8 @@ func createTracer(apiName string, zipKinAPIHost string) (opentracing.Tracer, err
 	return tracer, nil
 }
 
-func createCollector(zipKinAPIHost string) (zipkin.Collector, error) {
-	url := zipKinAPIHost + "/api/v1/spans"
+func createCollector(zipkinURL string) (zipkin.Collector, error) {
+	url := zipkinURL + "/api/v1/spans"
 	collector, err := zipkin.NewHTTPCollector(url)
 
 	if err != nil {

@@ -11,7 +11,7 @@ Go-tracing provides an easy way to use zipkin tracing with only four lines of co
 import "github.com/ricardo-ch/go-tracing"
 
 // set your tracer
-tracing.SetGlobalTracer(appName, "{zipkin_host}")
+tracing.SetGlobalTracer(appName, "{zipkin_url}")
 defer tracing.FlushCollector()
 
 // define a trace
