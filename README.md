@@ -7,6 +7,9 @@ Go-tracing provides an easy way to use zipkin tracing with only four lines of co
 ## Quick start
 
 ```golang
+// import the library
+import "github.com/ricardo-ch/go-tracing"
+
 // set your tracer
 tracing.SetGlobalTracer(appName, "{zipkin_host}")
 defer tracing.FlushCollector()
