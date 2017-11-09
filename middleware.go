@@ -3,6 +3,8 @@ package tracing
 import (
 	"fmt"
 	"net/http"
+	"github.com/go-kit/kit/endpoint"
+	"context"
 )
 
 // HTTPMiddleware returns a Middleware that injects an OpenTracing Span found in
@@ -35,4 +37,16 @@ func HTTPMiddleware(operationName string, next http.Handler) http.Handler {
 		// next middleware or actual request handler
 		next.ServeHTTP(w, req)
 	})
+}
+
+// GotKitEndpointMiddleWare returns a gokit.Middleware which change the behavior of a gokit.endpoint
+// it had tracing capability
+func GotKitEndpointMiddleWare(operationName string) endpoint.Middleware {
+	return func(next endpoint.Endpoint) endpoint.Endpoint {
+		return func(ctx context.Context, request interface{}) (interface{}, error) {
+			span, ctx := CreateSpan(ctx, operationName, nil)
+			defer span.Finish()
+			return next(ctx, request)
+		}
+	}
 }
