@@ -10,6 +10,8 @@ import (
 
 	opentracing "github.com/opentracing/opentracing-go"
 	"github.com/stretchr/testify/assert"
+	"context"
+	"github.com/pkg/errors"
 )
 
 func TestMiddleware(t *testing.T) {
@@ -37,4 +39,19 @@ func getTestHandler(rw http.ResponseWriter, req *http.Request) {
 		fmt.Fprint(rw, "span ok")
 	}
 	http.Error(rw, "SPAN_NOT_FOUND", 404)
+}
+
+func TestGoKitEndpointMiddleware(t *testing.T) {
+	assert := assert.New(t)
+
+	endpoint := func(ctx context.Context, request interface{}) (response interface{}, err error) {
+		if span := opentracing.SpanFromContext(ctx); span == nil {
+			return nil, errors.New("span not found")
+		}
+		return nil, nil
+	}
+	endpoint = GotKitEndpointMiddleWare("span test")(endpoint)
+
+	_, err := endpoint(context.Background(), nil)
+	assert.NoError(err)
 }
