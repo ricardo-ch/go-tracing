@@ -2,9 +2,9 @@ package tracing
 
 import (
 	"context"
-	"net/http"
 	opentracing "github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
+	"net/http"
 )
 
 //CreateSpan ...
@@ -32,9 +32,6 @@ func CreateSpanFromClientContext(r *http.Request, spanName string, tags *map[str
 
 	// store span in context
 	ctx := r.Context()
-	if ctx == nil {
-		ctx = context.Background()
-	}
 	childCtx := opentracing.ContextWithSpan(ctx, span)
 
 	return span, childCtx
@@ -55,7 +52,7 @@ func setTags(span opentracing.Span, tags *map[string]interface{}) {
 
 // InjectIntoCarrier returns a textMapCarrier, basically a map[string]string,
 //  which can be used to transmit a span context to another service with ExtractFromCarrier
-func InjectIntoCarrier(ctx context.Context) opentracing.TextMapCarrier{
+func InjectIntoCarrier(ctx context.Context) opentracing.TextMapCarrier {
 	carrier := opentracing.TextMapCarrier{}
 
 	// Retrieve the Span from context
