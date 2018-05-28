@@ -3,6 +3,7 @@ package tracing
 import (
 	"context"
 	"net/http"
+	"net/http/httptrace"
 
 	opentracing "github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
@@ -109,5 +110,20 @@ func InjectSpan(r *http.Request) *http.Request {
 			opentracing.HTTPHeadersCarrier(r.Header),
 		)
 	}
+	return r
+}
+
+// InjectHTTPTraceSpan Injects HttpTrace on the request
+func InjectHTTPTraceSpan(r *http.Request, trace *httptrace.ClientTrace) *http.Request {
+
+	if span := opentracing.SpanFromContext(r.Context()); span != nil {
+		if trace == nil {
+			trace = newClientTrace(span)
+		}
+
+		ctx := httptrace.WithClientTrace(r.Context(), trace)
+		r = r.WithContext(ctx)
+	}
+
 	return r
 }
