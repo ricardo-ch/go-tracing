@@ -22,8 +22,8 @@
 
 [[constraint]]
   name = "github.com/apache/thrift"
-  version = "0.11.0"
+  version = "=0.11.0"
 
 [[constraint]]
   name = "github.com/openzipkin/zipkin-go-opentracing"
-  version = "0.3.2"
+  version = "=0.3.2"
