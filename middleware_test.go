@@ -8,10 +8,11 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	opentracing "github.com/opentracing/opentracing-go"
-	"github.com/stretchr/testify/assert"
 	"context"
+
+	opentracing "github.com/opentracing/opentracing-go"
 	"github.com/pkg/errors"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMiddleware(t *testing.T) {

@@ -1,10 +1,11 @@
 package tracing
 
 import (
+	"context"
 	"fmt"
 	"net/http"
+
 	"github.com/go-kit/kit/endpoint"
-	"context"
 )
 
 // HTTPMiddleware returns a Middleware that injects an OpenTracing Span found in

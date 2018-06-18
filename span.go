@@ -2,9 +2,10 @@ package tracing
 
 import (
 	"context"
+	"net/http"
+
 	opentracing "github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
-	"net/http"
 )
 
 //CreateSpan ...
