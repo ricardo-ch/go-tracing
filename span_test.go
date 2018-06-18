@@ -3,8 +3,9 @@ package tracing
 import (
 	"context"
 	"errors"
-	"testing"
 	"net/http"
+	"testing"
+
 	"github.com/stretchr/testify/assert"
 )
 
