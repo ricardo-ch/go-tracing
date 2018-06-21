@@ -114,11 +114,12 @@ func InjectSpan(r *http.Request) *http.Request {
 }
 
 // InjectHTTPTraceSpan Injects HttpTrace on the request
-func InjectHTTPTraceSpan(r *http.Request, trace *httptrace.ClientTrace) *http.Request {
+func InjectHTTPTraceSpan(r *http.Request, options ...func(*httptrace.ClientTrace, opentracing.Span)) *http.Request {
 
 	if span := opentracing.SpanFromContext(r.Context()); span != nil {
-		if trace == nil {
-			trace = newClientTrace(span)
+		trace := newClientTrace(span)
+		for _, option := range options {
+			option(trace, span)
 		}
 
 		ctx := httptrace.WithClientTrace(r.Context(), trace)
