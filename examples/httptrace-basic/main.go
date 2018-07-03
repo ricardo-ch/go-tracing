@@ -39,7 +39,7 @@ func doWork(ctx context.Context) {
 	}
 
 	// Add The trace to the Request
-	r = tracing.InjectHTTPTraceSpan(r, option)
+	r = tracing.InjectSpan(r, option)
 	client := &http.Client{
 		Timeout: time.Duration(100) * (time.Millisecond),
 	}

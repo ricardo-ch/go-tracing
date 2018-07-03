@@ -95,8 +95,11 @@ func ExtractFromCarrier(ctx context.Context, carrier opentracing.TextMapCarrier,
 	return span, childCtx
 }
 
+// TraceOptions represents the options of a ClientTrace
+type TraceOptions func(*httptrace.ClientTrace, opentracing.Span)
+
 //InjectSpan ...
-func InjectSpan(r *http.Request) *http.Request {
+func InjectSpan(r *http.Request, options ...TraceOptions) *http.Request {
 	// Retrieve the Span from context
 	if span := opentracing.SpanFromContext(r.Context()); span != nil {
 		// We are going to use this span in a client request, so mark as such.
@@ -109,22 +112,20 @@ func InjectSpan(r *http.Request) *http.Request {
 			opentracing.TextMap,
 			opentracing.HTTPHeadersCarrier(r.Header),
 		)
+		// Inject HttpTrace by default on the request
+		r = injectHTTPTrace(r, span, options...)
 	}
 	return r
 }
 
-// InjectHTTPTraceSpan Injects HttpTrace on the request
-func InjectHTTPTraceSpan(r *http.Request, options ...func(*httptrace.ClientTrace, opentracing.Span)) *http.Request {
-
-	if span := opentracing.SpanFromContext(r.Context()); span != nil {
-		trace := newClientTrace(span)
-		for _, option := range options {
-			option(trace, span)
-		}
-
-		ctx := httptrace.WithClientTrace(r.Context(), trace)
-		r = r.WithContext(ctx)
+func injectHTTPTrace(r *http.Request, span opentracing.Span, options ...TraceOptions) *http.Request {
+	trace := newClientTrace(span)
+	for _, option := range options {
+		option(trace, span)
 	}
+
+	ctx := httptrace.WithClientTrace(r.Context(), trace)
+	r = r.WithContext(ctx)
 
 	return r
 }
