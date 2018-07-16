@@ -15,7 +15,7 @@ const (
 )
 
 func main() {
-	tracing.SetGlobalTracer(appName, "http://localhost:9411/")
+	tracing.SetGlobalTracer(appName, "http://localhost:9411")
 	defer tracing.FlushCollector()
 
 	svc := stringService{}
