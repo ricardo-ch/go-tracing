@@ -1,9 +1,10 @@
 package tracing
 
 import (
-	opentracing "github.com/opentracing/opentracing-go"
-	zipkin "github.com/openzipkin/zipkin-go-opentracing"
-	"github.com/pkg/errors"
+"github.com/opentracing/opentracing-go"
+zipkin "github.com/openzipkin/zipkin-go-opentracing"
+"github.com/pkg/errors"
+"net/url"
 )
 
 var globalColector zipkin.Collector
@@ -42,8 +43,14 @@ func createTracer(apiName string, zipkinURL string) (opentracing.Tracer, error) 
 }
 
 func createCollector(zipkinURL string) (zipkin.Collector, error) {
-	url := zipkinURL + "/api/v1/spans"
-	collector, err := zipkin.NewHTTPCollector(url)
+	relativeEndPointURL, _ := url.Parse("api/v1/spans")
+	serviceURL, err := url.Parse(zipkinURL)
+	if err != nil {
+		return nil, err
+	}
+	absoluteEndPointURL := serviceURL.ResolveReference(relativeEndPointURL)
+
+	collector, err := zipkin.NewHTTPCollector(absoluteEndPointURL.String())
 
 	if err != nil {
 		return nil, errors.Wrap(err, "createCollector")
