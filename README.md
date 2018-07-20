@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/ricardo-ch/go-tracing.svg?branch=travis)](https://travis-ci.org/ricardo-ch/go-tracing)
 [![Coverage Status](https://coveralls.io/repos/github/ricardo-ch/go-tracing/badge.svg?branch=master)](https://coveralls.io/github/ricardo-ch/go-tracing?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ricardo-ch/go-tracing)](https://goreportcard.com/report/github.com/ricardo-ch/go-tracing)
-
+[![GoDoc](https://godoc.org/github.com/ricardo-ch/go-tracing?status.svg)](https://godoc.org/github.com/ricardo-ch/go-tracing)
 [![GitHub version](https://badge.fury.io/gh/ricardo-ch%2Fgo-tracing.svg)](https://badge.fury.io/gh/ricardo-ch%2Fgo-tracing)
 
 
