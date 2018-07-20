@@ -3,6 +3,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/ricardo-ch/go-tracing/badge.svg?branch=master)](https://coveralls.io/github/ricardo-ch/go-tracing?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ricardo-ch/go-tracing)](https://goreportcard.com/report/github.com/ricardo-ch/go-tracing)
 
+[![GitHub version](https://badge.fury.io/gh/ricardo-ch%2Fgo-tracing.svg)](https://badge.fury.io/gh/ricardo-ch%2Fgo-tracing)
+
+
 Go-tracing provides an easy way to use zipkin tracing with only four lines of code.
 
 ## Quick start
