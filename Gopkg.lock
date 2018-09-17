@@ -2,155 +2,147 @@
 
 
 [[projects]]
-  name = "github.com/Shopify/sarama"
+  branch = "master"
+  digest = "1:c46fd324e7902268373e1b337436a6377c196e2dbd7b35624c6256d29d494e78"
+  name = "github.com/codahale/hdrhistogram"
   packages = ["."]
-  revision = "f7be6aa2bc7b2e38edf816b08b582782194a1c02"
-  version = "v1.16.0"
+  pruneopts = ""
+  revision = "3a0bb77429bd3a61596f5e8a3172445844342120"
 
 [[projects]]
-  name = "github.com/apache/thrift"
-  packages = ["lib/go/thrift"]
-  revision = "327ebb6c2b6df8bf075da02ef45a2a034e9b79ba"
-  version = "0.11.0"
-
-[[projects]]
+  digest = "1:56c130d885a4aacae1dd9c7b71cfe39912c7ebc1ff7d2b46083c8812996dc43b"
   name = "github.com/davecgh/go-spew"
   packages = ["spew"]
+  pruneopts = ""
   revision = "346938d642f2ec3594ed81d874461961cd0faa76"
   version = "v1.1.0"
 
 [[projects]]
-  name = "github.com/eapache/go-resiliency"
-  packages = ["breaker"]
-  revision = "6800482f2c813e689c88b7ed3282262385011890"
-  version = "v1.0.0"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/eapache/go-xerial-snappy"
-  packages = ["."]
-  revision = "bb955e01b9346ac19dc29eb16586c90ded99a98c"
-
-[[projects]]
-  name = "github.com/eapache/queue"
-  packages = ["."]
-  revision = "44cc805cf13205b55f69e14bcb69867d1ae92f98"
-  version = "v1.1.0"
-
-[[projects]]
+  digest = "1:44ec1082ba97d89ce860abcc6ee3f0cf24e658d3efb8531b0f0a52f0781e4243"
   name = "github.com/go-kit/kit"
   packages = [
     "endpoint",
     "log",
-    "transport/http"
+    "transport/http",
   ]
+  pruneopts = ""
   revision = "4dc7be5d2d12881735283bcab7352178e190fc71"
   version = "v0.6.0"
 
 [[projects]]
+  digest = "1:6a4a01d58b227c4b6b11111b9f172ec5c17682b82724e58e6daf3f19f4faccd8"
   name = "github.com/go-logfmt/logfmt"
   packages = ["."]
+  pruneopts = ""
   revision = "390ab7935ee28ec6b286364bba9b4dd6410cb3d5"
   version = "v0.3.0"
 
 [[projects]]
+  digest = "1:9ca737b471693542351e112c9e86be9bf7385e42256893a09ecb2a98e2036f74"
   name = "github.com/go-stack/stack"
   packages = ["."]
+  pruneopts = ""
   revision = "259ab82a6cad3992b4e21ff5cac294ccb06474bc"
   version = "v1.7.0"
 
 [[projects]]
-  name = "github.com/gogo/protobuf"
-  packages = ["proto"]
-  revision = "1adfc126b41513cc696b209667c8656ea7aac67c"
-  version = "v1.0.0"
-
-[[projects]]
   branch = "master"
-  name = "github.com/golang/snappy"
-  packages = ["."]
-  revision = "553a641470496b2327abcac10b36396bd98e45c9"
-
-[[projects]]
-  branch = "master"
+  digest = "1:1ed9eeebdf24aadfbca57eb50e6455bd1d2474525e0f0d4454de8c8e9bc7ee9a"
   name = "github.com/kr/logfmt"
   packages = ["."]
+  pruneopts = ""
   revision = "b84e30acd515aadc4b783ad4ff83aff3299bdfe0"
 
 [[projects]]
-  branch = "master"
-  name = "github.com/opentracing-contrib/go-observer"
-  packages = ["."]
-  revision = "a52f2342449246d5bcc273e65cbdcfa5f7d6c63c"
-
-[[projects]]
+  digest = "1:78fb99d6011c2ae6c72f3293a83951311147b12b06a5ffa43abf750c4fab6ac5"
   name = "github.com/opentracing/opentracing-go"
   packages = [
     ".",
     "ext",
-    "log"
+    "log",
   ]
+  pruneopts = ""
   revision = "1949ddbfd147afd4d964a9f00b24eb291e0e7c38"
   version = "v1.0.2"
 
 [[projects]]
-  name = "github.com/openzipkin/zipkin-go-opentracing"
-  packages = [
-    ".",
-    "flag",
-    "thrift/gen-go/scribe",
-    "thrift/gen-go/zipkincore",
-    "types",
-    "wire"
-  ]
-  revision = "45e90b00710a4c34a1a7d8a78d90f9b010b0bd4d"
-  version = "v0.3.2"
-
-[[projects]]
-  name = "github.com/pierrec/lz4"
-  packages = ["."]
-  revision = "2fcda4cb7018ce05a25959d2fe08c83e3329f169"
-  version = "v1.1"
-
-[[projects]]
-  name = "github.com/pierrec/xxHash"
-  packages = ["xxHash32"]
-  revision = "f051bb7f1d1aaf1b5a665d74fb6b0217712c69f7"
-  version = "v0.1.1"
-
-[[projects]]
+  digest = "1:7365acd48986e205ccb8652cc746f09c8b7876030d53710ea6ef7d0bd0dcd7ca"
   name = "github.com/pkg/errors"
   packages = ["."]
+  pruneopts = ""
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
   version = "v0.8.0"
 
 [[projects]]
+  digest = "1:256484dbbcd271f9ecebc6795b2df8cad4c458dd0f5fd82a8c2fa0c29f233411"
   name = "github.com/pmezard/go-difflib"
   packages = ["difflib"]
+  pruneopts = ""
   revision = "792786c7400a136282c1664665ae0a8db921c6c2"
   version = "v1.0.0"
 
 [[projects]]
-  branch = "master"
-  name = "github.com/rcrowley/go-metrics"
-  packages = ["."]
-  revision = "8732c616f52954686704c8645fe1a9d59e9df7c1"
-
-[[projects]]
+  digest = "1:a30066593578732a356dc7e5d7f78d69184ca65aeeff5939241a3ab10559bb06"
   name = "github.com/stretchr/testify"
   packages = ["assert"]
+  pruneopts = ""
   revision = "12b6f73e6084dad08a7c6e575284b177ecafbc71"
   version = "v1.2.1"
 
 [[projects]]
+  digest = "1:acdc8a34ebf61772eed1f00cad6667f37b8f2618bf958eb59d3e28c690703ad8"
+  name = "github.com/uber/jaeger-client-go"
+  packages = [
+    ".",
+    "config",
+    "internal/baggage",
+    "internal/baggage/remote",
+    "internal/spanlog",
+    "internal/throttler",
+    "internal/throttler/remote",
+    "log",
+    "rpcmetrics",
+    "thrift",
+    "thrift-gen/agent",
+    "thrift-gen/baggage",
+    "thrift-gen/jaeger",
+    "thrift-gen/sampling",
+    "thrift-gen/zipkincore",
+    "utils",
+  ]
+  pruneopts = ""
+  revision = "b043381d944715b469fd6b37addfd30145ca1758"
+  version = "v2.14.0"
+
+[[projects]]
+  digest = "1:aa1598d34009b45ce74fdabdd25e4258d7923d1e1b418d4c98482e79607cb9b0"
+  name = "github.com/uber/jaeger-lib"
+  packages = ["metrics"]
+  pruneopts = ""
+  revision = "ed3a127ec5fef7ae9ea95b01b542c47fbd999ce5"
+  version = "v1.5.0"
+
+[[projects]]
   branch = "master"
+  digest = "1:b6c2b04cb0d9f13f17753062d6cc38295513565bc7012deb14b9492d97a79084"
   name = "golang.org/x/net"
   packages = ["context"]
+  pruneopts = ""
   revision = "f5dfe339be1d06f81b22525fe34671ee7d2c8904"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "3a8e31469ac80ddcadf6e07ac733b325975709f8e928d5fb1791a5c82b801692"
+  input-imports = [
+    "github.com/go-kit/kit/endpoint",
+    "github.com/go-kit/kit/transport/http",
+    "github.com/opentracing/opentracing-go",
+    "github.com/opentracing/opentracing-go/ext",
+    "github.com/pkg/errors",
+    "github.com/stretchr/testify/assert",
+    "github.com/uber/jaeger-client-go/config",
+    "github.com/uber/jaeger-client-go/log",
+    "github.com/uber/jaeger-lib/metrics",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -13,7 +13,11 @@ const (
 )
 
 func main() {
-	tracing.SetGlobalTracer(appName, "http://localhost:9411")
+	err := tracing.SetGlobalTracer(appName)
+	if err != nil {
+		panic(err)
+	}
+
 	defer tracing.FlushCollector()
 
 	doWork(context.Background())

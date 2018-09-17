@@ -1,73 +1,42 @@
 package tracing
 
 import (
-"github.com/opentracing/opentracing-go"
-zipkin "github.com/openzipkin/zipkin-go-opentracing"
-"github.com/pkg/errors"
-"net/url"
+	"io"
+	"log"
+
+	"github.com/opentracing/opentracing-go"
+	jaegercfg "github.com/uber/jaeger-client-go/config"
 )
 
-var globalColector zipkin.Collector
+var globalCloser io.Closer
 
-//GetGlobalTracer ...
 func GetGlobalTracer() opentracing.Tracer {
 	return opentracing.GlobalTracer()
 }
 
-//SetGlobalTracer ...
-func SetGlobalTracer(apiName string, zipkinURL string) error {
-	tracer, err := createTracer(apiName, zipkinURL)
+func SetGlobalTracer(appName string) error {
+	// Recommended configuration for production.
+	cfg, err := jaegercfg.FromEnv()
 	if err != nil {
-		return errors.Wrap(err, "SetGlobalTracer")
-	}
-	opentracing.SetGlobalTracer(tracer)
-	return nil
-}
-
-func createTracer(apiName string, zipkinURL string) (opentracing.Tracer, error) {
-	collector, err := createCollector(zipkinURL)
-	if err != nil {
-		return nil, errors.Wrap(err, "createTracer")
+		log.Println("could not load jaeger configuration from environment variables")
+		return nil
 	}
 
-	tracer, err := zipkin.NewTracer(
-		createRecorder(collector, apiName),
-		zipkin.ClientServerSameSpan(true),
+	// Initialize tracer with a logger and a metrics factory
+	closer, err := cfg.InitGlobalTracer(
+		appName,
 	)
-
 	if err != nil {
-		return nil, errors.Wrap(err, "createTracer")
+		log.Printf("Could not initialize jaeger tracer: %s", err.Error())
+		return err
 	}
+	globalCloser = closer
 
-	return tracer, nil
-}
-
-func createCollector(zipkinURL string) (zipkin.Collector, error) {
-	relativeEndPointURL, _ := url.Parse("api/v1/spans")
-	serviceURL, err := url.Parse(zipkinURL)
-	if err != nil {
-		return nil, err
-	}
-	absoluteEndPointURL := serviceURL.ResolveReference(relativeEndPointURL)
-
-	collector, err := zipkin.NewHTTPCollector(absoluteEndPointURL.String())
-
-	if err != nil {
-		return nil, errors.Wrap(err, "createCollector")
-	}
-	globalColector = collector
-	return collector, nil
-}
-
-func createRecorder(collector zipkin.Collector, apiName string) zipkin.SpanRecorder {
-	return zipkin.NewRecorder(collector,
-		false,
-		"0.0.0.0:0",
-		apiName)
+	return err
 }
 
 func FlushCollector() {
-	if globalColector != nil {
-		globalColector.Close()
+	if globalCloser != nil {
+		globalCloser.Close()
 	}
 }
