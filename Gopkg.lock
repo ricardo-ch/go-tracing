@@ -141,8 +141,6 @@
     "github.com/pkg/errors",
     "github.com/stretchr/testify/assert",
     "github.com/uber/jaeger-client-go/config",
-    "github.com/uber/jaeger-client-go/log",
-    "github.com/uber/jaeger-lib/metrics",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

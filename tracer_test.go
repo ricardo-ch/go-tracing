@@ -7,7 +7,8 @@ import (
 )
 
 func Test_setAndGetTracer_OK(t *testing.T) {
-	SetGlobalTracer("testAPIName", "http://testHost:9411")
+
+	SetGlobalTracer()
 	tracer := GetGlobalTracer()
 	assert.NotNil(t, tracer)
 }
