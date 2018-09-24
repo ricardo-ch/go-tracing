@@ -40,6 +40,15 @@ To watch traces you just have to hit http://localhost:9411/
  - Extract/Inject span from/to a map[string]string (textMapCarrier)
  - Declare an error span
 
+## Local Testing
+
+To locally test the tracer for development, use the provided `docker-compose` configuration to spin up jaeger and
+an example app. The default configuration uses the `examples/httpServer` code:
+
+    make docker-compose
+
+Then, browse to the Jaeger UI at: http://localhost:16686/search
+
 ## License
 go-tracing is licensed under the MIT license. (http://opensource.org/licenses/MIT)
 

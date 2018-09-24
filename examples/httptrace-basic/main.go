@@ -17,7 +17,8 @@ const (
 )
 
 func main() {
-	tracing.SetGlobalTracer(appName)
+	os.Setenv("JAEGER_SERVICE_NAME", appName)
+	tracing.SetGlobalTracer()
 	defer tracing.FlushCollector()
 
 	doWork(context.Background())

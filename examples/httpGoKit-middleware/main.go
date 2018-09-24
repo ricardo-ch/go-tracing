@@ -7,6 +7,7 @@ import (
 
 	httptransport "github.com/go-kit/kit/transport/http"
 	"github.com/ricardo-ch/go-tracing"
+	"os"
 )
 
 // this name is use to identify traces inside zipkin
@@ -15,7 +16,8 @@ const (
 )
 
 func main() {
-	tracing.SetGlobalTracer(appName)
+	os.Setenv("JAEGER_SERVICE_NAME", appName)
+	tracing.SetGlobalTracer()
 	defer tracing.FlushCollector()
 
 	svc := stringService{}
