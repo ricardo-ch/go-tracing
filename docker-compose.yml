@@ -1,24 +1,6 @@
 version: '3'
 
 services:
-  api:
-    build: .
-    ports:
-      - "5000:5000"
-#    volumes:
-#      - ./config.toml:/config.toml
-    environment:
-      - ENVIRONMENT=DEV
-      - JAEGER_SERVICE_NAME=examples-basic
-      - JAEGER_AGENT_HOST=jaeger
-      - JAEGER_AGENT_PORT=5775
-    depends_on:
-      - jaeger
-    command:
-      - ./wait-for-it.sh
-      - jaeger:5775
-      - --
-      - app
 
   jaeger:
     image: jaegertracing/all-in-one:1.6
@@ -33,25 +15,7 @@ services:
     environment:
       - COLLECTOR_ZIPKIN_HTTP_PORT=9411
 
-#  prometheus:
-#    image: prom/prometheus:latest
-#    ports:
-#      - "9090:9090"
-#    volumes:
-#      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-#      - prometheus_data:/prometheus
-#
-#  grafana:
-#    image: grafana/grafana
-#    ports:
-#      - "3000:3000"
-#    environment:
-#            - GF_SECURITY_ADMIN_PASSWORD=pass
-#    depends_on:
-#      - prometheus
-#    volumes:
-#      - grafana_data:/var/lib/grafana
-
-#volumes:
-#    prometheus_data: {}
-#    grafana_data: {}
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
