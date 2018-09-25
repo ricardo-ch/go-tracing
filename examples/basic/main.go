@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/ricardo-ch/go-tracing"
+	"log"
 	"os"
 )
 
@@ -15,9 +16,14 @@ const (
 
 func main() {
 	os.Setenv("JAEGER_SERVICE_NAME", appName)
+	os.Setenv("JAEGER_AGENT_HOST", "localhost")
+	os.Setenv("JAEGER_AGENT_PORT", "6831")
+	os.Setenv("JAEGER_SAMPLER_TYPE", "const")
+	os.Setenv("JAEGER_SAMPLER_PARAM", "1")
+
 	err := tracing.SetGlobalTracer()
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	defer tracing.FlushCollector()
