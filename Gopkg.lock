@@ -109,8 +109,8 @@
     "types",
     "wire"
   ]
-  revision = "26cf9707480e6b90e5eff22cf0bbf05319154232"
-  version = "v0.3.4"
+  revision = "45e90b00710a4c34a1a7d8a78d90f9b010b0bd4d"
+  version = "v0.3.2"
 
 [[projects]]
   name = "github.com/pierrec/lz4"
@@ -183,6 +183,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "54fd3ed7d8dcedf0416f4e627e275b57ee0ccf6944e72fe003f3f8b8146c8a8b"
+  inputs-digest = "20a6a4b7e96d69fb1cf91a5ae1bf6bbc52caf4ccad18e63eab6559adfe0e845c"
   solver-name = "gps-cdcl"
   solver-version = 1
