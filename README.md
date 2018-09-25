@@ -23,14 +23,14 @@ defer span.Finish()
 ## Examples
 
 ```
-docker run -d -p 9411:9411 openzipkin/zipkin
+make run-jaeger
 go run examples/basic/main.go
 go run examples/httpServer/main.go
 go run examples/httpServer-middleware/main.go
 go run examples/httpGoKit-middleware/main.go
 ```
 
-To watch traces you just have to hit http://localhost:9411/
+To watch traces you just have to hit http://localhost:16686/search
 
 ## Features
 
@@ -39,15 +39,6 @@ To watch traces you just have to hit http://localhost:9411/
  - Extract/Inject span from/to httpRequest
  - Extract/Inject span from/to a map[string]string (textMapCarrier)
  - Declare an error span
-
-## Local Testing
-
-To locally test the tracer for development, use the provided `docker-compose` configuration to spin up jaeger and
-an example app. The default configuration uses the `examples/httpServer` code:
-
-    make docker-compose
-
-Then, browse to the Jaeger UI at: http://localhost:16686/search
 
 ## License
 go-tracing is licensed under the MIT license. (http://opensource.org/licenses/MIT)
