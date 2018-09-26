@@ -32,6 +32,9 @@ go run examples/httpGoKit-middleware/main.go
 
 To watch traces you just have to hit http://localhost:16686/search
 
+Examples declare the envar they need in the code (e.g.: `os.Setenv("JAEGER_AGENT_HOST", "localhost")`), but technically,
+if using jaeger you are supposed to properly declare envar outside of the code. See list [there](https://github.com/jaegertracing/jaeger-client-go#environment-variables)
+
 ## Features
 
  - Create span from nothing

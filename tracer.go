@@ -11,30 +11,33 @@ func GetGlobalTracer() opentracing.Tracer {
 	return opentracing.GlobalTracer()
 }
 
-type TracerConfig struct {
+type tracerConfig struct {
 	TracingService string
 	AppName        string
 	TracingHost    string
 }
 
-type TracerOption func(config *TracerConfig)
+type tracerOption func(config *tracerConfig)
 
-func UsingZipkin(appName string, host string) TracerOption {
-	return func(config *TracerConfig) {
+// Pass UsingZipkin's result as argument to SetGlobalTracer to set Zipkin as your tracing system
+func UsingZipkin(appName string, host string) tracerOption {
+	return func(config *tracerConfig) {
 		config.TracingService = "zipkin"
 		config.TracingHost = host
 		config.AppName = appName
 	}
 }
 
-func UsingJaeger() TracerOption {
-	return func(config *TracerConfig) {
+// Pass UsingJaeger's result as argument to SetGlobalTracer to set Jaeger as your tracing system
+// This is the default behavior
+func UsingJaeger() tracerOption {
+	return func(config *tracerConfig) {
 		config.TracingService = "jaeger"
 	}
 }
 
-func SetGlobalTracer(options ...TracerOption) error {
-	config := &TracerConfig{}
+func SetGlobalTracer(options ...tracerOption) error {
+	config := &tracerConfig{}
 	for _, option := range options {
 		option(config)
 	}
