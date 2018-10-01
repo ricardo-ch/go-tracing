@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	opentracing "github.com/opentracing/opentracing-go"
+	"github.com/opentracing/opentracing-go"
 	"github.com/ricardo-ch/go-tracing"
 )
 
@@ -17,7 +17,13 @@ const (
 )
 
 func main() {
-	tracing.SetGlobalTracer(appName, "http://localhost:9411")
+	os.Setenv("JAEGER_SERVICE_NAME", appName)
+	os.Setenv("JAEGER_AGENT_HOST", "localhost")
+	os.Setenv("JAEGER_AGENT_PORT", "6831")
+	os.Setenv("JAEGER_SAMPLER_TYPE", "const")
+	os.Setenv("JAEGER_SAMPLER_PARAM", "1")
+
+	tracing.SetGlobalTracer()
 	defer tracing.FlushCollector()
 
 	doWork(context.Background())

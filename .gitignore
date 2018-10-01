@@ -15,4 +15,9 @@
 .glide/
 
 vendor
+vendor.orig
 .idea
+
+app
+
+wait-for-it.sh
