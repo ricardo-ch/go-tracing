@@ -5,15 +5,14 @@ services:
   jaeger:
     image: jaegertracing/all-in-one:1.6
     ports:
-      - "5775:5775"   # UDP - accept zipkin.thrift over compact thrift protocol
-      - "6831:6831"   # UDP - accept jaeger.thrift over compact thrift protocol
-      - "6832:6832"   # UDP - accept jaeger.thrift over binary thrift protocol
-      - "5778:5778"   # HTTP - serve configs
-      - "16686:16686" # HTTP - serve frontend
-      - "14268:14268" # HTTP - accept jaeger.thrift directly from clients
-      - "9411:9411"   # HTTP - Zipkin compatible endpoint
+      - 5775:5775/udp # accept zipkin.thrift over compact thrift protocol
+      - 6831:6831/udp # accept jaeger.thrift over compact thrift protocol
+      - 6832:6832/udp # accept jaeger.thrift over binary thrift protocol
+      - 5778:5778 # serve configs
+      - 16686:16686 # serve frontend
+      - 14268:14268 # accept jaeger.thrift directly from clients
     environment:
-      - COLLECTOR_ZIPKIN_HTTP_PORT=9411
+    - COLLECTOR_ZIPKIN_HTTP_PORT=9411
 
   zipkin:
     image: openzipkin/zipkin
