@@ -1,10 +1,12 @@
 package tracing
 
 import (
-"github.com/opentracing/opentracing-go"
-zipkin "github.com/openzipkin/zipkin-go-opentracing"
-"github.com/pkg/errors"
-"net/url"
+	"net/url"
+
+	_ "github.com/apache/thrift/lib/go/thrift"
+	"github.com/opentracing/opentracing-go"
+	zipkin "github.com/openzipkin/zipkin-go-opentracing"
+	"github.com/pkg/errors"
 )
 
 var globalColector zipkin.Collector
