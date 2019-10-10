@@ -33,14 +33,6 @@
   version = "=0.3.2"
 
 [[constraint]]
-  name = "github.com/pkg/errors"
-  version = "0.8.1"
-
-[[constraint]]
-  name = "github.com/stretchr/testify"
-  version = "1.2.2"
-
-[[constraint]]
   name = "github.com/uber/jaeger-client-go"
   version = "2.19.0"
 
