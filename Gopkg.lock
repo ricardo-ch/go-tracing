@@ -2,23 +2,15 @@
 
 
 [[projects]]
-  digest = "1:6d8a3b164679872fa5a4c44559235f7fb109c7b5cd0f456a2159d579b76cc9ba"
-  name = "github.com/DataDog/zstd"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "809b919c325d7887bff7bd876162af73db53e878"
-  version = "v1.4.0"
-
-[[projects]]
-  digest = "1:8bf13b4dbecd2e3e2bf4d8fac3b37ffc61dc19653f2e38c7b0e575c7182c6d8b"
+  digest = "1:6a3120bd3297497861522b06ba0067f3b902434dceb5ae7bc90322b80cf729aa"
   name = "github.com/Shopify/sarama"
   packages = ["."]
   pruneopts = "UT"
-  revision = "5d2af84cf5e2dd36f2daecaaafa13c4e286f20fd"
-  version = "v1.22.0"
+  revision = "1358e9c6e61694cd61b2daae79f5aa4b8073c976"
+  version = "v1.24.0"
 
 [[projects]]
-  digest = "1:4c57496812e66ec227173e0ab0c0ca80aa4221a881b495b22e388567c33538a4"
+  digest = "1:e64acfe8cda1955db545ede8e863c54d69f1ac6cd058df4349be4040320840fd"
   name = "github.com/apache/thrift"
   packages = ["lib/go/thrift"]
   pruneopts = "UT"
@@ -38,8 +30,8 @@
   name = "github.com/eapache/go-resiliency"
   packages = ["breaker"]
   pruneopts = "UT"
-  revision = "ea41b0fad31007accc7f806884dcdf3da98b79ce"
-  version = "v1.1.0"
+  revision = "5efd2ed019fd331ec2defc6f3bd98882f1e3e636"
+  version = "v1.2.0"
 
 [[projects]]
   branch = "master"
@@ -86,12 +78,12 @@
   version = "v1.8.0"
 
 [[projects]]
-  digest = "1:48092bf6632f55839850666c33469f546f6d45fdbd59a66759ec12e84d853dc2"
+  digest = "1:4882ca4e50712f367a52a467a277dcd8ef877b82acaa5973baea92fe7443f2eb"
   name = "github.com/gogo/protobuf"
   packages = ["proto"]
   pruneopts = "UT"
-  revision = "ba06b47c162d49f2af050fb4c75bcbc86a159d5c"
-  version = "v1.2.1"
+  revision = "0ca988a254f991240804bf9821f3450d87ccbb1b"
+  version = "v1.3.0"
 
 [[projects]]
   digest = "1:e4f5819333ac698d294fe04dbf640f84719658d5c7ce195b10060cc37292ce79"
@@ -100,6 +92,39 @@
   pruneopts = "UT"
   revision = "2a8bb927dd31d8daada140a5d09578521ce5c36a"
   version = "v0.0.1"
+
+[[projects]]
+  digest = "1:f14364057165381ea296e49f8870a9ffce2b8a95e34d6ae06c759106aaef428c"
+  name = "github.com/hashicorp/go-uuid"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "4f571afc59f3043a65f8fe6bf46d887b10a01d43"
+  version = "v1.0.1"
+
+[[projects]]
+  digest = "1:ae221758bdddd57f5c76f4ee5e4110af32ee62583c46299094697f8f127e63da"
+  name = "github.com/jcmturner/gofork"
+  packages = [
+    "encoding/asn1",
+    "x/crypto/pbkdf2",
+  ]
+  pruneopts = "UT"
+  revision = "dc7c13fece037a4a36e2b3c69db4991498d30692"
+  version = "v1.0.0"
+
+[[projects]]
+  digest = "1:b3ee801604856739d1005c9c19def743f75178884e17106a2269f0dcc797977c"
+  name = "github.com/klauspost/compress"
+  packages = [
+    "fse",
+    "huff0",
+    "snappy",
+    "zstd",
+    "zstd/internal/xxhash",
+  ]
+  pruneopts = "UT"
+  revision = "da9470192e5d0ad619defde5ded583e5e907d3e8"
+  version = "v1.8.6"
 
 [[projects]]
   branch = "master"
@@ -145,15 +170,15 @@
   version = "v0.3.2"
 
 [[projects]]
-  digest = "1:cf9272ab0a637cb1ffa40e2b6220108d7016a36b3eb357e4b57aacb7a8f725c0"
+  digest = "1:cef870622e603ac1305922eb5d380455cad27e354355ae7a855d8633ffa66197"
   name = "github.com/pierrec/lz4"
   packages = [
     ".",
     "internal/xxh32",
   ]
   pruneopts = "UT"
-  revision = "9419d2361c8ae111073ffe3337ecc364fb590921"
-  version = "v2.1.2"
+  revision = "645f9b948eee34cbcc335c70999f79c29c420fbf"
+  version = "v2.3.0"
 
 [[projects]]
   digest = "1:cf31692c14422fa27c83a05292eb5cbe0fb2775972e8f1f8446a71549bd8980b"
@@ -173,11 +198,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d38f81081a389f1466ec98192cf9115a82158854d6f01e1c23e2e7554b97db71"
+  digest = "1:5bbebe8ac19ecb6c87790a89faa20566e38ed0d6494a1d14c4f5b05d9ce2436c"
   name = "github.com/rcrowley/go-metrics"
   packages = ["."]
   pruneopts = "UT"
-  revision = "3113b8401b8a98917cde58f8bbd42a1b1c03b1fd"
+  revision = "cac0b30c2563378d434b5af411844adff8e32960"
 
 [[projects]]
   digest = "1:972c2427413d41a1e06ca4897e8528e5a1622894050e2f527b38ddf0f343f759"
@@ -188,7 +213,7 @@
   version = "v1.3.0"
 
 [[projects]]
-  digest = "1:3b0ac1ac6f703e6d43f4e29c97da2c9e34465c66e2e19f9828e9841d1c9279a4"
+  digest = "1:b0fcdb2b7d3f20b60e024bb8c8be5a47d72c353f21e9a083fb1a226de4a94c43"
   name = "github.com/uber/jaeger-client-go"
   packages = [
     ".",
@@ -210,16 +235,27 @@
     "utils",
   ]
   pruneopts = "UT"
-  revision = "2f47546e3facd43297739439600bcf43f44cce5d"
-  version = "v2.16.0"
+  revision = "d4d621cd6ed9aa5f1fc91eb0d0211d336bd6b79d"
+  version = "v2.19.0"
 
 [[projects]]
-  digest = "1:c9d69a04f7fa171f50360bbcc32196b4de8ab8837ef772f6302d0140a1e3e7f6"
+  digest = "1:d7b6fd08442b8d26882fae2c859a0d63962d72a533476a217d46743ed30cb803"
   name = "github.com/uber/jaeger-lib"
   packages = ["metrics"]
   pruneopts = "UT"
-  revision = "0e30338a695636fe5bcf7301e8030ce8dd2a8530"
-  version = "v2.0.0"
+  revision = "a87ae9d84fb038a8d79266298970720be7c80fcd"
+  version = "v2.2.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:04b43fe96213ea69cfa6e6b8be218a43a375035ea09d9bdda9fed2691f5a7e76"
+  name = "golang.org/x/crypto"
+  packages = [
+    "md4",
+    "pbkdf2",
+  ]
+  pruneopts = "UT"
+  revision = "34f69633bfdcf9db92f698f8487115767eebef81"
 
 [[projects]]
   branch = "master"
@@ -232,6 +268,72 @@
   ]
   pruneopts = "UT"
   revision = "1da14a5a36f220ea3f03470682b737b1dfd5de22"
+
+[[projects]]
+  digest = "1:c902038ee2d6f964d3b9f2c718126571410c5d81251cbab9fe58abd37803513c"
+  name = "gopkg.in/jcmturner/aescts.v1"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "f6abebb3171c4c1b1fea279cb7c7325020a26290"
+  version = "v1.0.1"
+
+[[projects]]
+  digest = "1:a1a3e185c03d79a7452d5d5b4c91be4cc433f55e6ed3a35233d852c966e39013"
+  name = "gopkg.in/jcmturner/dnsutils.v1"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "13eeb8d49ffb74d7a75784c35e4d900607a3943c"
+  version = "v1.0.1"
+
+[[projects]]
+  digest = "1:dc01a587d07be012625ba63df6d4224ae6d7a83e79bfebde6d987c10538d66dd"
+  name = "gopkg.in/jcmturner/gokrb5.v7"
+  packages = [
+    "asn1tools",
+    "client",
+    "config",
+    "credentials",
+    "crypto",
+    "crypto/common",
+    "crypto/etype",
+    "crypto/rfc3961",
+    "crypto/rfc3962",
+    "crypto/rfc4757",
+    "crypto/rfc8009",
+    "gssapi",
+    "iana",
+    "iana/addrtype",
+    "iana/adtype",
+    "iana/asnAppTag",
+    "iana/chksumtype",
+    "iana/errorcode",
+    "iana/etypeID",
+    "iana/flags",
+    "iana/keyusage",
+    "iana/msgtype",
+    "iana/nametype",
+    "iana/patype",
+    "kadmin",
+    "keytab",
+    "krberror",
+    "messages",
+    "pac",
+    "types",
+  ]
+  pruneopts = "UT"
+  revision = "363118e62befa8a14ff01031c025026077fe5d6d"
+  version = "v7.3.0"
+
+[[projects]]
+  digest = "1:0f16d9c577198e3b8d3209f5a89aabe679525b2aba2a7548714e973035c0e232"
+  name = "gopkg.in/jcmturner/rpc.v1"
+  packages = [
+    "mstypes",
+    "ndr",
+  ]
+  pruneopts = "UT"
+  revision = "99a8ce2fbf8b8087b6ed12a37c61b10f04070043"
+  version = "v1.1.0"
 
 [solve-meta]
   analyzer-name = "dep"
