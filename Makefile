@@ -6,7 +6,7 @@ build:
 
 .PHONY: test
 test:
-	go test -v `go list ./... | grep -v /examples/`
+	go test ./...
 
 .PHONY: run-zipkin
 run-zipkin:
