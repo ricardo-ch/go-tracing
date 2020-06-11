@@ -24,15 +24,6 @@ type tracerConfig struct {
 
 type tracerOption func(config *tracerConfig)
 
-// Pass UsingZipkin's result as argument to SetGlobalTracer to set Zipkin as your tracing system
-func UsingZipkin(appName string, host string) tracerOption {
-	return func(config *tracerConfig) {
-		config.TracingService = "zipkin"
-		config.TracingHost = host
-		config.AppName = appName
-	}
-}
-
 // Pass UsingJaeger's result as argument to SetGlobalTracer to set Jaeger as your tracing system
 // This is the default behavior
 func UsingJaeger() tracerOption {
@@ -47,13 +38,7 @@ func SetGlobalTracer(options ...tracerOption) error {
 		option(config)
 	}
 
-	switch config.TracingService {
-	case "zipkin":
-		setGlobalZipkinTracer(config.AppName, config.TracingHost)
-	case "jaeger":
-	default:
-		setGlobalJaegerTracer()
-	}
+	setGlobalJaegerTracer()
 	return nil
 }
 
