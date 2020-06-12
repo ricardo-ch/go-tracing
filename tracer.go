@@ -3,11 +3,6 @@ package tracing
 import (
 	"github.com/opentracing/opentracing-go"
 	jaegercfg "github.com/uber/jaeger-client-go/config"
-
-	// Dep's [Constraint] only work for direct dependencies. [Override] is ignored when used in lib.
-	// To avoid using override on each application package.toml, let's fake a direct dependency this way.
-	// Yes it is a hack. Still better than seeing that reference between subpackage go-opentracing and thrift broke again.
-	_ "github.com/apache/thrift/lib/go/thrift"
 )
 
 var globalFlusher func()
